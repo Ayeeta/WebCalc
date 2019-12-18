@@ -4,57 +4,106 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".MainActivity">
 
-
-    <EditText
-        android:id="@+id/numberOneTxt"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="@color/theme_bg">
 
-        android:layout_marginTop="100dp"
-        android:inputType="numberDecimal" />
+        <TextView
+            android:id="@+id/label_number_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:labelFor="@id/numberOneTxt"
+            android:text="@string/txt_num_one"
 
-    <EditText
-        android:id="@+id/numberTwoTxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
+            android:textColor="@color/labels_"/>
 
-        android:layout_below="@id/numberOneTxt"
-        android:layout_marginTop="40dp"
-        android:inputType="numberDecimal" />
+        <EditText
+            android:id="@+id/numberOneTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/text_lbls"
 
-    <Spinner
-        android:id="@+id/op_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:entries="@array/operation_array"
-        android:layout_below="@id/numberTwoTxt"/>
+            android:padding="10dp"
+            android:inputType="numberDecimal"
+            android:background="@drawable/edit_text_box"/>
 
-    <Button
-        android:id="@+id/btn_calc"
-        android:layout_width="match_parent"
-        android:layout_marginTop="40dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/op_spinner"
-        android:text="@string/calc_btn" />
+        <TextView
+            android:id="@+id/label_number_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:labelFor="@id/numberTwoTxt"
+            android:text="@string/txt_num_two"
+            android:textColor="@color/labels_"/>
+
+        <EditText
+            android:id="@+id/numberTwoTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/numberOneTxt"
+            android:background="@drawable/edit_text_box"
+            android:layout_marginTop="5dp"
+
+            android:padding="10dp"
+            android:textColor="@color/text_lbls"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/label_operation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:labelFor="@id/op_spinner"
+            android:text="@string/txt_spinner"
+            android:textColor="@color/labels_"/>
+        <Spinner
+            android:id="@+id/op_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/numberTwoTxt"
+            android:layout_marginTop="5dp"
+            android:padding="16dp"
+            android:spinnerMode="dropdown"
+            style="@style/CardView"
+            android:background="@drawable/spinner_"
+            android:entries="@array/operation_array"/>
+
+        <Button
+            android:id="@+id/btn_calc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/op_spinner"
+            android:layout_marginTop="40dp"
+            android:text="@string/calc_btn"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:background="@drawable/btn_calc"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textViewResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_below="@id/linearLayout"
+        android:layout_marginTop="10dp"
         android:padding="16dp"
-        android:layout_below="@id/btn_calc"
-        android:text="@string/txt_view" />
+        android:text="@string/txt_view"
+        android:background="@color/theme_bg"
+        android:textColor="@color/text_lbls"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/recyclerview"
         android:layout_below="@id/textViewResult"
         android:layout_marginTop="20dp">
 
