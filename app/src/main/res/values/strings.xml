@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">WebCalc</string>
+    <string name="app_name">Simple Calculator</string>
+    <string name="calc_btn">Calculate</string>
+    <string name="txt_num_one">Number One</string>
+    <string name="txt_num_two">Number Two</string>
+    <string name="txt_view">Results</string>
+    <string-array name="operation_array">
+        <item>Add</item>
+        <item>Divide</item>
+        <item>Multiply</item>
+        <item>Substact</item>
+    </string-array>
+
+
 </resources>
