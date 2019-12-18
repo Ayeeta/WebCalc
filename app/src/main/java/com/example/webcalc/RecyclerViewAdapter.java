@@ -58,11 +58,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            textViewNumOne = itemView.findViewById(R.id.txt_numOne);
-            textViewNumTwo = itemView.findViewById(R.id.txt_numTwo);
-            textViewResponse = itemView.findViewById(R.id.txt_response);
-            textViewExpected = itemView.findViewById(R.id.txt_expected);
-            textViewStatus = itemView.findViewById(R.id.txt_status);
+            textViewNumOne = (TextView) itemView.findViewById(R.id.txt_numOne);
+            textViewNumTwo = (TextView)itemView.findViewById(R.id.txt_numTwo);
+            textViewResponse = (TextView)itemView.findViewById(R.id.txt_response);
+            textViewExpected = (TextView)itemView.findViewById(R.id.txt_expected);
+            textViewStatus = (TextView) itemView.findViewById(R.id.txt_status);
         }
     }
 }
