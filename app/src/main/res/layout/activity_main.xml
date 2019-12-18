@@ -12,19 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:text="@string/txt_num_one"
+
         android:layout_marginTop="100dp"
-        android:inputType="numberSigned" />
+        android:inputType="numberDecimal" />
 
     <EditText
         android:id="@+id/numberTwoTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:text="@string/txt_num_two"
+
         android:layout_below="@id/numberOneTxt"
         android:layout_marginTop="40dp"
-        android:inputType="numberSigned" />
+        android:inputType="numberDecimal" />
 
     <Spinner
         android:id="@+id/op_spinner"
