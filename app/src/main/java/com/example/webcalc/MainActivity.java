@@ -34,17 +34,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 list_itemList = new ArrayList<>();
 
-//        for(int i = 1; i<= 2; i++){
-//            List_Item list_item = new List_Item(
-//                    "Number One:"+(5),
-//                    "Number Two:"+(2),
-//                    "Response: "+(234),
-//                    "Expected: "+(7),
-//                    "Passed: "+"No"
-//            );
-//
-//            list_itemList.add(list_item);
-//        }
+
                 List_Item list_item = new List_Item(
                         "Number One:"+(5),
                         "Number Two:"+(2),
@@ -63,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
                         "Passed: "+"Yes"
                 );
                 list_itemList.add(list_item2);
+
+                //review this line - context => btn.calculate.getContext()
                 adapter = new RecyclerViewAdapter(list_itemList, btn_calculate.getContext());
                 recyclerView.setAdapter(adapter);
             }
