@@ -97,16 +97,13 @@ public class MainActivity extends AppCompatActivity {
                         );
 
                         list_itemList.add(list_item);
-                        if (cardView != null) {
-                            cardView.setCardBackgroundColor(Color.rgb(255, 230, 230));
-                        }
+
 
                         Add();
 
                     } else {
-                        if (cardView != null) {
-                            cardView.setCardBackgroundColor(Color.rgb(255, 230, 230));
-                        }
+
+                        //cardView.setCardBackgroundColor(Color.rgb(255, 230, 230));
 
                         Add();
                     }

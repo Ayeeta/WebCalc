@@ -2,12 +2,14 @@ package com.example.webcalc;
 
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -40,6 +42,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.textViewResponse.setText(list_item.getResponse());
         holder.textViewExpected.setText(list_item.getExpected());
         holder.textViewStatus.setText(list_item.getPassed());
+
+        View itemView = holder.itemView;
+        CardView cardView = (CardView)itemView.findViewById(R.id.result_card);
+        TextView textView = (TextView) itemView.findViewById(R.id.txt_status);
+        if(textView.getText().toString().contains("No")){
+            cardView.setCardBackgroundColor(Color.rgb(255, 173, 153));
+        }else{
+            cardView.setCardBackgroundColor(Color.rgb(255, 212, 128));
+        }
     }
 
     @Override
