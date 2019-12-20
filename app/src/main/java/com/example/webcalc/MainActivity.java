@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                submit();
+
                 editTextNumOne = (EditText) findViewById(R.id.numberOneTxt);
                 editTextNumTwo = (EditText) findViewById(R.id.numberTwoTxt);
                 math_operator = (Spinner) findViewById(R.id.op_spinner);
@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
                     Random random = new Random();
                     double randomNumber = random.nextDouble();
                     int rounded_number = (int) Math.round(randomNumber);
+
                     if (rounded_number == 1) {
                         double another_number = random.nextDouble();
                         double numResponse = Math.ceil(another_number * 4000);
@@ -88,29 +89,35 @@ public class MainActivity extends AppCompatActivity {
                                 "Passed: " + "No"
                         );
 
+
+
                         list_itemList.add(list_item);
 
-                        List_Item list_item2 = new List_Item(
-                                "Number One:" + (Double.toString(numOne)),
-                                "Number Two:" + (Double.toString(numTwo)),
-                                "Response: " + (Double.toString(expected_result)),
-                                "Expected: " + (Double.toString(expected_result)),
-                                "Passed: " + "Yes"
-                        );
-
-                        list_itemList.add(list_item2);
+                        Add();
+//
+//                        List_Item list_item2 = new List_Item(
+//                                "Number One:" + (Double.toString(numOne)),
+//                                "Number Two:" + (Double.toString(numTwo)),
+//                                "Response: " + (Double.toString(expected_result)),
+//                                "Expected: " + (Double.toString(expected_result)),
+//                                "Passed: " + "Yes"
+//                        );
+//
+//                        list_itemList.add(list_item2);
                     } else {
 
+                        Add();
 
-                        List_Item list_item2 = new List_Item(
-                                "Number One:" + (Double.toString(numOne)),
-                                "Number Two:" + (Double.toString(numTwo)),
-                                "Response: " + (Double.toString(expected_result)),
-                                "Expected: " + (Double.toString(expected_result)),
-                                "Passed: " + "Yes"
-                        );
 
-                        list_itemList.add(list_item2);
+//                        List_Item list_item2 = new List_Item(
+//                                "Number One:" + (Double.toString(numOne)),
+//                                "Number Two:" + (Double.toString(numTwo)),
+//                                "Response: " + (Double.toString(expected_result)),
+//                                "Expected: " + (Double.toString(expected_result)),
+//                                "Passed: " + "Yes"
+//                        );
+//
+//                        list_itemList.add(list_item2);
                     }
 
                 } else if (math_operator.getSelectedItem().toString().equals("Subtract")) {
@@ -157,14 +164,21 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void submit() {
+    private void Add() {
+
+        editTextNumOne = (EditText) findViewById(R.id.numberOneTxt);
+        editTextNumTwo = (EditText) findViewById(R.id.numberTwoTxt);
+        math_operator = (Spinner) findViewById(R.id.op_spinner);
+        final String numOne = editTextNumOne.getText().toString();
+        final String numTwo = editTextNumTwo.getText().toString();
+
 
 
         String URL = "http://api.mathjs.org/v4/";
 
         final JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("expr", "1+2");
+            jsonObject.put("expr", numOne+"+"+numTwo);
         }catch(JSONException je){
             Toast.makeText(this, "Server Error", Toast.LENGTH_LONG).show();
         }
@@ -174,8 +188,18 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try{
+                            double expected_result = Float.valueOf(numOne) + Float.valueOf(numTwo);
                             res = response.getString("result");
-                            Log.d("Result", res);
+                            List_Item list_item2 = new List_Item(
+                                    "Number One:" + (numOne),
+                                    "Number Two:" + (numTwo),
+                                    "Response: " + (res),
+                                    "Expected: " + (Double.toString(expected_result)),
+                                    "Passed: " + "Yes"
+                            );
+
+                            list_itemList.add(list_item2);
+
 
                         }catch (JSONException je){
 
@@ -189,41 +213,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         requestQueue.add(jsonObjectRequest);
-//        RequestQueue requestQueue = Volley.newRequestQueue(this);
-//        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
-//                new Response.Listener<String>() {
-//                    @Override
-//                    public void onResponse(String response) {
-//                        Log.d("Response",response);
-////                        try {
-////                            JSONObject jsonObject = new JSONObject(response);
-////
-////                            String res = jsonObject.getString("result");
-////                            Toast.makeText(getApplicationContext(), res, Toast.LENGTH_LONG).show();
-////                        } catch (JSONException e) {
-////                            Toast.makeText(getApplicationContext(), "Server Error", Toast.LENGTH_LONG).show();
-////                        }
-//                    }
-//                }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-////                Log.d("Error.Response", response);
-////                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
-//            }
-//        }) ;
-//        {
-//            @Override
-//            protected Map<String, String> getParams(){
-//                Map<String, String> params = new HashMap<String, String>();
-//                params.put("expr", "1+2");
-//
-//                return params;
-//            }
-//        };
 
-//        requestQueue.add(stringRequest);
-
-
+        adapter = new RecyclerViewAdapter(list_itemList, btn_calculate.getContext());
+        recyclerView.setAdapter(adapter);
     }
 
 
