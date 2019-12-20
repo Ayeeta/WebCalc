@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,8 +35,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        List_Item list_item = list_itemList.get(position);
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+        final List_Item list_item = list_itemList.get(position);
 
         holder.textViewNumOne.setText(list_item.getNumberOne());
         holder.textViewNumTwo.setText(list_item.getNumberTwo());
@@ -51,6 +52,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }else{
             cardView.setCardBackgroundColor(Color.rgb(255, 212, 128));
         }
+
+        holder.delete_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                list_itemList.remove(holder.getAdapterPosition());
+                notifyItemRemoved(holder.getAdapterPosition());
+                notifyItemChanged(holder.getAdapterPosition(), list_itemList.size());
+            }
+        });
     }
 
     @Override
@@ -65,6 +75,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public TextView textViewResponse;
         public TextView textViewExpected;
         public TextView textViewStatus;
+        public ImageView delete_btn;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -74,6 +85,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             textViewResponse = (TextView)itemView.findViewById(R.id.txt_response);
             textViewExpected = (TextView)itemView.findViewById(R.id.txt_expected);
             textViewStatus = (TextView) itemView.findViewById(R.id.txt_status);
+            delete_btn = (ImageView) itemView.findViewById(R.id.btn_delete);
         }
     }
 }
