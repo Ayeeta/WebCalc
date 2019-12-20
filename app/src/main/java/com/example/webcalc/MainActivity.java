@@ -70,131 +70,137 @@ public class MainActivity extends AppCompatActivity {
                 editTextNumOne = (EditText) findViewById(R.id.numberOneTxt);
                 editTextNumTwo = (EditText) findViewById(R.id.numberTwoTxt);
                 math_operator = (Spinner) findViewById(R.id.op_spinner);
-                final double numOne = Float.valueOf(editTextNumOne.getText().toString());
-                final double numTwo = Float.valueOf(editTextNumTwo.getText().toString());
-                final double expected_result;
+                try {
+                    final double numOne = Float.valueOf(editTextNumOne.getText().toString());
+                    final double numTwo = Float.valueOf(editTextNumTwo.getText().toString());
+                    final double expected_result;
 
-                list_itemList = new ArrayList<>();
-
-                if (math_operator.getSelectedItem().toString().equals("Add")) {
-
-                    expected_result = numOne + numTwo;
-                    Random random = new Random();
-                    double randomNumber = random.nextDouble();
-                    int rounded_number = (int) Math.round(randomNumber);
-
-                    if (rounded_number == 1) {
+                    list_itemList = new ArrayList<>();
+                    //Thread thread = new Thread();
+                    if (math_operator.getSelectedItem().toString().equals("Add")) {
 
 
-                        double another_number = random.nextDouble();
-                        double numResponse = Math.ceil(another_number * 4000);
-                        List_Item list_item = new List_Item(
-                                "Number One:" + (numOne),
-                                "Number Two:" + (numTwo),
-                                "Response: " + (Double.toString(numResponse)),
-                                "Expected: " + (Double.toString(expected_result)),
-                                "Passed: " + "No"
-                        );
+                        expected_result = numOne + numTwo;
+                        Random random = new Random();
+                        double randomNumber = random.nextDouble();
+                        int rounded_number = (int) Math.round(randomNumber);
 
-                        list_itemList.add(list_item);
+                        if (rounded_number == 1) {
 
 
-                        Add();
+                            double another_number = random.nextDouble();
+                            double numResponse = Math.ceil(another_number * 4000);
+                            List_Item list_item = new List_Item(
+                                    "Number One:" + (numOne),
+                                    "Number Two:" + (numTwo),
+                                    "Response: " + (Double.toString(numResponse)),
+                                    "Expected: " + (Double.toString(expected_result)),
+                                    "Passed: " + "No"
+                            );
 
-                    } else {
-
-                        //cardView.setCardBackgroundColor(Color.rgb(255, 230, 230));
-
-                        Add();
-                    }
-
-                } else if (math_operator.getSelectedItem().toString().equals("Subtract")) {
-
-                    expected_result = numOne - numTwo;
-                    Random random = new Random();
-                    double randomNumber = random.nextDouble();
-                    int rounded_number = (int) Math.round(randomNumber);
-
-                    if (rounded_number == 1) {
-                        double another_number = random.nextDouble();
-                        double numResponse = Math.ceil(another_number * 4000);
-                        List_Item list_item = new List_Item(
-                                "Number One:" + (numOne),
-                                "Number Two:" + (numTwo),
-                                "Response: " + (Double.toString(numResponse)),
-                                "Expected: " + (Double.toString(expected_result)),
-                                "Passed: " + "No"
-                        );
-
-                        list_itemList.add(list_item);
-
-                        Subtract();
-
-                    } else {
-
-                        Subtract();
-                    }
+                            list_itemList.add(list_item);
 
 
-                } else if (math_operator.getSelectedItem().toString().equals("Divide")) {
-                    expected_result = numOne / numTwo;
-                    Random random = new Random();
-                    double randomNumber = random.nextDouble();
-                    int rounded_number = (int) Math.round(randomNumber);
+                            Add();
 
-                    if (rounded_number == 1) {
-                        double another_number = random.nextDouble();
-                        double numResponse = Math.ceil(another_number * 4000);
-                        List_Item list_item = new List_Item(
-                                "Number One:" + (numOne),
-                                "Number Two:" + (numTwo),
-                                "Response: " + (Double.toString(numResponse)),
-                                "Expected: " + (Double.toString(expected_result)),
-                                "Passed: " + "No"
-                        );
+                        } else {
 
-                        list_itemList.add(list_item);
+                            //cardView.setCardBackgroundColor(Color.rgb(255, 230, 230));
 
-                        Divide();
+                            Add();
+                        }
 
-                    } else {
 
-                        Divide();
-                    }
+                    } else if (math_operator.getSelectedItem().toString().equals("Subtract")) {
 
-                } else {
-                    expected_result = numOne * numTwo;
-                    Random random = new Random();
-                    double randomNumber = random.nextDouble();
-                    int rounded_number = (int) Math.round(randomNumber);
+                        expected_result = numOne - numTwo;
+                        Random random = new Random();
+                        double randomNumber = random.nextDouble();
+                        int rounded_number = (int) Math.round(randomNumber);
 
-                    if (rounded_number == 1) {
-                        double another_number = random.nextDouble();
-                        double numResponse = Math.ceil(another_number * 4000);
-                        List_Item list_item = new List_Item(
-                                "Number One:" + (numOne),
-                                "Number Two:" + (numTwo),
-                                "Response: " + (Double.toString(numResponse)),
-                                "Expected: " + (Double.toString(expected_result)),
-                                "Passed: " + "No"
-                        );
+                        if (rounded_number == 1) {
+                            double another_number = random.nextDouble();
+                            double numResponse = Math.ceil(another_number * 4000);
+                            List_Item list_item = new List_Item(
+                                    "Number One:" + (numOne),
+                                    "Number Two:" + (numTwo),
+                                    "Response: " + (Double.toString(numResponse)),
+                                    "Expected: " + (Double.toString(expected_result)),
+                                    "Passed: " + "No"
+                            );
 
-                        list_itemList.add(list_item);
+                            list_itemList.add(list_item);
 
-                        Multiply();
+                            Subtract();
+
+                        } else {
+
+                            Subtract();
+                        }
+
+
+                    } else if (math_operator.getSelectedItem().toString().equals("Divide")) {
+                        expected_result = numOne / numTwo;
+                        Random random = new Random();
+                        double randomNumber = random.nextDouble();
+                        int rounded_number = (int) Math.round(randomNumber);
+
+                        if (rounded_number == 1) {
+                            double another_number = random.nextDouble();
+                            double numResponse = Math.ceil(another_number * 4000);
+                            List_Item list_item = new List_Item(
+                                    "Number One:" + (numOne),
+                                    "Number Two:" + (numTwo),
+                                    "Response: " + (Double.toString(numResponse)),
+                                    "Expected: " + (Double.toString(expected_result)),
+                                    "Passed: " + "No"
+                            );
+
+                            list_itemList.add(list_item);
+
+                            Divide();
+
+                        } else {
+
+                            Divide();
+                        }
 
                     } else {
+                        expected_result = numOne * numTwo;
+                        Random random = new Random();
+                        double randomNumber = random.nextDouble();
+                        int rounded_number = (int) Math.round(randomNumber);
 
-                        Multiply();
+                        if (rounded_number == 1) {
+                            double another_number = random.nextDouble();
+                            double numResponse = Math.ceil(another_number * 4000);
+                            List_Item list_item = new List_Item(
+                                    "Number One:" + (numOne),
+                                    "Number Two:" + (numTwo),
+                                    "Response: " + (Double.toString(numResponse)),
+                                    "Expected: " + (Double.toString(expected_result)),
+                                    "Passed: " + "No"
+                            );
+
+                            list_itemList.add(list_item);
+
+                            Multiply();
+
+                        } else {
+
+                            Multiply();
+                        }
+
                     }
 
+                    adapter = new RecyclerViewAdapter(list_itemList, btn_calculate.getContext());
+                    recyclerView.setAdapter(adapter);
+
+                    editTextNumOne.getText().clear();
+                    editTextNumTwo.getText().clear();
+                } catch (NumberFormatException e) {
+                    Toast.makeText(getApplicationContext(), "Please enter number", Toast.LENGTH_LONG).show();
                 }
-
-                adapter = new RecyclerViewAdapter(list_itemList, btn_calculate.getContext());
-                recyclerView.setAdapter(adapter);
-
-                editTextNumOne.getText().clear();
-                editTextNumTwo.getText().clear();
             }
         });
     }
@@ -204,6 +210,7 @@ public class MainActivity extends AppCompatActivity {
         editTextNumOne = (EditText) findViewById(R.id.numberOneTxt);
         editTextNumTwo = (EditText) findViewById(R.id.numberTwoTxt);
         math_operator = (Spinner) findViewById(R.id.op_spinner);
+        try{
         final String numOne = editTextNumOne.getText().toString();
         final String numTwo = editTextNumTwo.getText().toString();
 
@@ -251,6 +258,9 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new RecyclerViewAdapter(list_itemList, btn_calculate.getContext());
         recyclerView.setAdapter(adapter);
+        }catch (NumberFormatException e){
+            Toast.makeText(getApplicationContext(), "Please enter number", Toast.LENGTH_LONG).show();
+        }
     }
 
 
@@ -259,6 +269,7 @@ public class MainActivity extends AppCompatActivity {
         editTextNumOne = (EditText) findViewById(R.id.numberOneTxt);
         editTextNumTwo = (EditText) findViewById(R.id.numberTwoTxt);
         math_operator = (Spinner) findViewById(R.id.op_spinner);
+        try{
         final String numOne = editTextNumOne.getText().toString();
         final String numTwo = editTextNumTwo.getText().toString();
 
@@ -305,6 +316,9 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new RecyclerViewAdapter(list_itemList, btn_calculate.getContext());
         recyclerView.setAdapter(adapter);
+        }catch (NumberFormatException e){
+            Toast.makeText(getApplicationContext(), "Please enter number", Toast.LENGTH_LONG).show();
+        }
 
     }
 
@@ -313,52 +327,56 @@ public class MainActivity extends AppCompatActivity {
         editTextNumOne = (EditText) findViewById(R.id.numberOneTxt);
         editTextNumTwo = (EditText) findViewById(R.id.numberTwoTxt);
         math_operator = (Spinner) findViewById(R.id.op_spinner);
-        final String numOne = editTextNumOne.getText().toString();
-        final String numTwo = editTextNumTwo.getText().toString();
-
-
-        String URL = "http://api.mathjs.org/v4/";
-
-        final JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("expr", numOne + "*" + numTwo);
-        } catch (JSONException je) {
-            Toast.makeText(this, "Server Error", Toast.LENGTH_LONG).show();
-        }
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL, jsonObject,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            double expected_result = Float.valueOf(numOne) * Float.valueOf(numTwo);
-                            res = response.getString("result");
-                            List_Item list_item2 = new List_Item(
-                                    "Number One:" + (numOne),
-                                    "Number Two:" + (numTwo),
-                                    "Response: " + (res),
-                                    "Expected: " + (Double.toString(expected_result)),
-                                    "Passed: " + "Yes"
-                            );
-
-                            list_itemList.add(list_item2);
+            final String numOne = editTextNumOne.getText().toString();
+            final String numTwo = editTextNumTwo.getText().toString();
 
 
-                        } catch (JSONException je) {
-                            Toast.makeText(getApplicationContext(), "Unable to submit", Toast.LENGTH_LONG).show();
-                        }
+            String URL = "http://api.mathjs.org/v4/";
 
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
+            final JSONObject jsonObject = new JSONObject();
+            try {
+                jsonObject.put("expr", numOne + "*" + numTwo);
+            } catch (JSONException je) {
+                Toast.makeText(this, "Server Error", Toast.LENGTH_LONG).show();
             }
-        });
-        requestQueue.add(jsonObjectRequest);
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL, jsonObject,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                double expected_result = Float.valueOf(numOne) * Float.valueOf(numTwo);
+                                res = response.getString("result");
+                                List_Item list_item2 = new List_Item(
+                                        "Number One:" + (numOne),
+                                        "Number Two:" + (numTwo),
+                                        "Response: " + (res),
+                                        "Expected: " + (Double.toString(expected_result)),
+                                        "Passed: " + "Yes"
+                                );
 
-        adapter = new RecyclerViewAdapter(list_itemList, btn_calculate.getContext());
-        recyclerView.setAdapter(adapter);
+                                list_itemList.add(list_item2);
+
+
+                            } catch (JSONException je) {
+                                Toast.makeText(getApplicationContext(), "Unable to submit", Toast.LENGTH_LONG).show();
+                            }
+
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
+                }
+            });
+            requestQueue.add(jsonObjectRequest);
+
+            adapter = new RecyclerViewAdapter(list_itemList, btn_calculate.getContext());
+            recyclerView.setAdapter(adapter);
+        }catch (NumberFormatException e){
+                Toast.makeText(getApplicationContext(), "Please enter number", Toast.LENGTH_LONG).show();
+            }
     }
 
     private void Divide() {
@@ -366,6 +384,7 @@ public class MainActivity extends AppCompatActivity {
         editTextNumOne = (EditText) findViewById(R.id.numberOneTxt);
         editTextNumTwo = (EditText) findViewById(R.id.numberTwoTxt);
         math_operator = (Spinner) findViewById(R.id.op_spinner);
+        try{
         final String numOne = editTextNumOne.getText().toString();
         final String numTwo = editTextNumTwo.getText().toString();
 
@@ -412,6 +431,9 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new RecyclerViewAdapter(list_itemList, btn_calculate.getContext());
         recyclerView.setAdapter(adapter);
+        }catch (NumberFormatException e){
+            Toast.makeText(getApplicationContext(), "Please enter number", Toast.LENGTH_LONG).show();
+        }
     }
 
 }
