@@ -97,15 +97,15 @@ public class MainActivity extends AppCompatActivity {
                         );
 
                         list_itemList.add(list_item);
-                        if(cardView != null){
-                            cardView.setCardBackgroundColor(Color.rgb(255,230,230));
+                        if (cardView != null) {
+                            cardView.setCardBackgroundColor(Color.rgb(255, 230, 230));
                         }
 
                         Add();
 
                     } else {
-                        if(cardView != null){
-                            cardView.setCardBackgroundColor(Color.rgb(255,230,230));
+                        if (cardView != null) {
+                            cardView.setCardBackgroundColor(Color.rgb(255, 230, 230));
                         }
 
                         Add();
@@ -211,14 +211,12 @@ public class MainActivity extends AppCompatActivity {
         final String numTwo = editTextNumTwo.getText().toString();
 
 
-
-
         String URL = "http://api.mathjs.org/v4/";
 
         final JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("expr", numOne+"+"+numTwo);
-        }catch(JSONException je){
+            jsonObject.put("expr", numOne + "+" + numTwo);
+        } catch (JSONException je) {
             Toast.makeText(this, "Server Error", Toast.LENGTH_LONG).show();
         }
         RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -226,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        try{
+                        try {
                             double expected_result = Float.valueOf(numOne) + Float.valueOf(numTwo);
                             res = response.getString("result");
                             List_Item list_item2 = new List_Item(
@@ -240,7 +238,7 @@ public class MainActivity extends AppCompatActivity {
                             list_itemList.add(list_item2);
 
 
-                        }catch (JSONException je){
+                        } catch (JSONException je) {
 
                         }
 
@@ -267,13 +265,12 @@ public class MainActivity extends AppCompatActivity {
         final String numTwo = editTextNumTwo.getText().toString();
 
 
-
         String URL = "http://api.mathjs.org/v4/";
 
         final JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("expr", numOne+"-"+numTwo);
-        }catch(JSONException je){
+            jsonObject.put("expr", numOne + "-" + numTwo);
+        } catch (JSONException je) {
             Toast.makeText(this, "Server Error", Toast.LENGTH_LONG).show();
         }
         RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -281,7 +278,7 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        try{
+                        try {
                             double expected_result = Float.valueOf(numOne) - Float.valueOf(numTwo);
                             res = response.getString("result");
                             List_Item list_item2 = new List_Item(
@@ -295,7 +292,7 @@ public class MainActivity extends AppCompatActivity {
                             list_itemList.add(list_item2);
 
 
-                        }catch (JSONException je){
+                        } catch (JSONException je) {
 
                         }
 
@@ -310,6 +307,7 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new RecyclerViewAdapter(list_itemList, btn_calculate.getContext());
         recyclerView.setAdapter(adapter);
+
     }
 
     private void Multiply() {
@@ -321,13 +319,12 @@ public class MainActivity extends AppCompatActivity {
         final String numTwo = editTextNumTwo.getText().toString();
 
 
-
         String URL = "http://api.mathjs.org/v4/";
 
         final JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("expr", numOne+"*"+numTwo);
-        }catch(JSONException je){
+            jsonObject.put("expr", numOne + "*" + numTwo);
+        } catch (JSONException je) {
             Toast.makeText(this, "Server Error", Toast.LENGTH_LONG).show();
         }
         RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -335,7 +332,7 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        try{
+                        try {
                             double expected_result = Float.valueOf(numOne) * Float.valueOf(numTwo);
                             res = response.getString("result");
                             List_Item list_item2 = new List_Item(
@@ -349,7 +346,7 @@ public class MainActivity extends AppCompatActivity {
                             list_itemList.add(list_item2);
 
 
-                        }catch (JSONException je){
+                        } catch (JSONException je) {
 
                         }
 
@@ -375,13 +372,12 @@ public class MainActivity extends AppCompatActivity {
         final String numTwo = editTextNumTwo.getText().toString();
 
 
-
         String URL = "http://api.mathjs.org/v4/";
 
         final JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("expr", numOne+"/"+numTwo);
-        }catch(JSONException je){
+            jsonObject.put("expr", numOne + "/" + numTwo);
+        } catch (JSONException je) {
             Toast.makeText(this, "Server Error", Toast.LENGTH_LONG).show();
         }
         RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -389,7 +385,7 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        try{
+                        try {
                             double expected_result = Float.valueOf(numOne) / Float.valueOf(numTwo);
                             res = response.getString("result");
                             List_Item list_item2 = new List_Item(
@@ -403,7 +399,7 @@ public class MainActivity extends AppCompatActivity {
                             list_itemList.add(list_item2);
 
 
-                        }catch (JSONException je){
+                        } catch (JSONException je) {
 
                         }
 
