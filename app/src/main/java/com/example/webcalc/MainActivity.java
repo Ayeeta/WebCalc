@@ -89,35 +89,13 @@ public class MainActivity extends AppCompatActivity {
                                 "Passed: " + "No"
                         );
 
-
-
                         list_itemList.add(list_item);
 
                         Add();
-//
-//                        List_Item list_item2 = new List_Item(
-//                                "Number One:" + (Double.toString(numOne)),
-//                                "Number Two:" + (Double.toString(numTwo)),
-//                                "Response: " + (Double.toString(expected_result)),
-//                                "Expected: " + (Double.toString(expected_result)),
-//                                "Passed: " + "Yes"
-//                        );
-//
-//                        list_itemList.add(list_item2);
+
                     } else {
 
                         Add();
-
-
-//                        List_Item list_item2 = new List_Item(
-//                                "Number One:" + (Double.toString(numOne)),
-//                                "Number Two:" + (Double.toString(numTwo)),
-//                                "Response: " + (Double.toString(expected_result)),
-//                                "Expected: " + (Double.toString(expected_result)),
-//                                "Passed: " + "Yes"
-//                        );
-//
-//                        list_itemList.add(list_item2);
                     }
 
                 } else if (math_operator.getSelectedItem().toString().equals("Subtract")) {
