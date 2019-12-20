@@ -236,6 +236,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                         } catch (JSONException je) {
+                            Toast.makeText(getApplicationContext(), "Unable to submit", Toast.LENGTH_LONG).show();
 
                         }
 
@@ -243,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
             }
         });
         requestQueue.add(jsonObjectRequest);
@@ -290,14 +291,14 @@ public class MainActivity extends AppCompatActivity {
 
 
                         } catch (JSONException je) {
-
+                            Toast.makeText(getApplicationContext(), "Unable to submit", Toast.LENGTH_LONG).show();
                         }
 
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
             }
         });
         requestQueue.add(jsonObjectRequest);
@@ -344,14 +345,14 @@ public class MainActivity extends AppCompatActivity {
 
 
                         } catch (JSONException je) {
-
+                            Toast.makeText(getApplicationContext(), "Unable to submit", Toast.LENGTH_LONG).show();
                         }
 
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
             }
         });
         requestQueue.add(jsonObjectRequest);
@@ -397,14 +398,14 @@ public class MainActivity extends AppCompatActivity {
 
 
                         } catch (JSONException je) {
-
+                            Toast.makeText(getApplicationContext(), "Unable to submit", Toast.LENGTH_LONG).show();
                         }
 
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
             }
         });
         requestQueue.add(jsonObjectRequest);
