@@ -6,4 +6,5 @@
     <color name="theme_bg">#293d3d</color>
     <color name="labels_">#ffffff</color>
     <color name="text_lbls">#b36b00</color>
+    <color name="delete_button">#e62e00</color>
 </resources>
