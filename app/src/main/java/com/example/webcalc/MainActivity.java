@@ -1,10 +1,12 @@
 package com.example.webcalc;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Application;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     public EditText editTextNumTwo;
     Spinner math_operator;
     String res;
+    CardView cardView;
 
 
     public List<List_Item> list_itemList;
@@ -56,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         btn_calculate = (Button) findViewById(R.id.btn_calc);
+        cardView = (CardView) findViewById(R.id.result_card);
+
 
         btn_calculate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
                     int rounded_number = (int) Math.round(randomNumber);
 
                     if (rounded_number == 1) {
+
+
                         double another_number = random.nextDouble();
                         double numResponse = Math.ceil(another_number * 4000);
                         List_Item list_item = new List_Item(
@@ -90,10 +97,16 @@ public class MainActivity extends AppCompatActivity {
                         );
 
                         list_itemList.add(list_item);
+                        if(cardView != null){
+                            cardView.setCardBackgroundColor(Color.rgb(255,230,230));
+                        }
 
                         Add();
 
                     } else {
+                        if(cardView != null){
+                            cardView.setCardBackgroundColor(Color.rgb(255,230,230));
+                        }
 
                         Add();
                     }
@@ -196,6 +209,7 @@ public class MainActivity extends AppCompatActivity {
         math_operator = (Spinner) findViewById(R.id.op_spinner);
         final String numOne = editTextNumOne.getText().toString();
         final String numTwo = editTextNumTwo.getText().toString();
+
 
 
 
