@@ -99,45 +99,92 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 } else if (math_operator.getSelectedItem().toString().equals("Subtract")) {
-                    expected_result = numOne - numTwo;
-                    List_Item list_item = new List_Item(
-                            "Number One:" + (numOne),
-                            "Number Two:" + (numTwo),
-                            "Response: " + (234),
-                            "Expected: " + (expected_result),
-                            "Passed: " + "No"
-                    );
 
-                    list_itemList.add(list_item);
+                    expected_result = numOne - numTwo;
+                    Random random = new Random();
+                    double randomNumber = random.nextDouble();
+                    int rounded_number = (int) Math.round(randomNumber);
+
+                    if (rounded_number == 1) {
+                        double another_number = random.nextDouble();
+                        double numResponse = Math.ceil(another_number * 4000);
+                        List_Item list_item = new List_Item(
+                                "Number One:" + (numOne),
+                                "Number Two:" + (numTwo),
+                                "Response: " + (Double.toString(numResponse)),
+                                "Expected: " + (Double.toString(expected_result)),
+                                "Passed: " + "No"
+                        );
+
+                        list_itemList.add(list_item);
+
+                        Subtract();
+
+                    } else {
+
+                        Subtract();
+                    }
+
+
                 } else if (math_operator.getSelectedItem().toString().equals("Divide")) {
                     expected_result = numOne / numTwo;
-                    List_Item list_item = new List_Item(
-                            "Number One:" + (numOne),
-                            "Number Two:" + (numTwo),
-                            "Response: " + (234),
-                            "Expected: " + (expected_result),
-                            "Passed: " + "No"
-                    );
+                    Random random = new Random();
+                    double randomNumber = random.nextDouble();
+                    int rounded_number = (int) Math.round(randomNumber);
 
-                    list_itemList.add(list_item);
+                    if (rounded_number == 1) {
+                        double another_number = random.nextDouble();
+                        double numResponse = Math.ceil(another_number * 4000);
+                        List_Item list_item = new List_Item(
+                                "Number One:" + (numOne),
+                                "Number Two:" + (numTwo),
+                                "Response: " + (Double.toString(numResponse)),
+                                "Expected: " + (Double.toString(expected_result)),
+                                "Passed: " + "No"
+                        );
+
+                        list_itemList.add(list_item);
+
+                        Divide();
+
+                    } else {
+
+                        Divide();
+                    }
+
                 } else {
                     expected_result = numOne * numTwo;
-                    List_Item list_item = new List_Item(
-                            "Number One:" + (numOne),
-                            "Number Two:" + (numTwo),
-                            "Response: " + (234),
-                            "Expected: " + (expected_result),
-                            "Passed: " + "No"
-                    );
+                    Random random = new Random();
+                    double randomNumber = random.nextDouble();
+                    int rounded_number = (int) Math.round(randomNumber);
 
-                    list_itemList.add(list_item);
+                    if (rounded_number == 1) {
+                        double another_number = random.nextDouble();
+                        double numResponse = Math.ceil(another_number * 4000);
+                        List_Item list_item = new List_Item(
+                                "Number One:" + (numOne),
+                                "Number Two:" + (numTwo),
+                                "Response: " + (Double.toString(numResponse)),
+                                "Expected: " + (Double.toString(expected_result)),
+                                "Passed: " + "No"
+                        );
+
+                        list_itemList.add(list_item);
+
+                        Multiply();
+
+                    } else {
+
+                        Multiply();
+                    }
+
                 }
 
                 adapter = new RecyclerViewAdapter(list_itemList, btn_calculate.getContext());
                 recyclerView.setAdapter(adapter);
 
-//                editTextNumOne.getText().clear();
-//                editTextNumTwo.getText().clear();
+                editTextNumOne.getText().clear();
+                editTextNumTwo.getText().clear();
             }
         });
     }
