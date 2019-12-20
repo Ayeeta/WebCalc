@@ -11,11 +11,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:orientation="vertical">
+            android:padding="10dp">
 
             <TextView
                 android:id="@+id/txt_numOne"
@@ -26,30 +25,34 @@
                 android:text="@string/txt_num_two"
                 android:id="@+id/txt_numTwo"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_numOne"/>
             <TextView
                 android:id="@+id/txt_response"
                 android:text="@string/txt_response"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_numTwo"/>
 
             <TextView
                 android:id="@+id/txt_expected"
                 android:text="@string/txt_expected"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_response"/>
 
             <TextView
                 android:id="@+id/txt_status"
                 android:text="@string/txt_passed"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_expected"/>
 <!--            <Button-->
 <!--                android:id="@+id/delete_btn"-->
 <!--                android:layout_width="40dp"-->
 <!--                android:layout_height="40dp"-->
 <!--                android:layout_alignParentRight="true"-->
 <!--                android:background="@drawable/delete_button"/>-->
-        </LinearLayout>
+        </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>
