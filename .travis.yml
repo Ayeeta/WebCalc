@@ -1,7 +1,2 @@
 language: java
 
-before_install:
-  - chmod +x gradlew
-
-jdk:
-  - oraclejdk13.0.1
