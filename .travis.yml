@@ -1,4 +1,7 @@
 language: java
 
-before_install: - chmod +x gradlew
-script: - chmod +x ./gradlew build connectedCheck
+before_install:
+  - chmod +x gradlew
+
+jdk:
+  - oraclejdk13.0.1
