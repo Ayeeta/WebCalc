@@ -5,3 +5,5 @@ A calculator app that uses Restful Web API. The Application receives two numbers
 * Clone/ download and open with Android Studio
 * make project
 * Run project
+___
+**Disclaimer:** *On first run application may appear to be slow, since calls to the API take a while to return a response*
