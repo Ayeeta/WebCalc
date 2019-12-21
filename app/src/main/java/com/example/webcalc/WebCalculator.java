@@ -2,17 +2,17 @@ package com.example.webcalc;
 
 import com.orm.SugarRecord;
 
-public class WebCalc extends SugarRecord {
+public class WebCalculator extends SugarRecord {
     private String numberOne;
     private String numberTwo;
     private String response;
     private String expected;
     private String passed;
 
-    public WebCalc() {
+    public WebCalculator() {
     }
 
-    public WebCalc(String numberOne, String numberTwo, String response, String expected, String passed) {
+    public WebCalculator(String numberOne, String numberTwo, String response, String expected, String passed) {
         this.numberOne = numberOne;
         this.numberTwo = numberTwo;
         this.response = response;
