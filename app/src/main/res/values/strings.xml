@@ -8,6 +8,7 @@
     <string name="txt_response">Response</string>
     <string name="txt_expected">Expected</string>
     <string name="txt_passed">Passed</string>
+
     <string-array name="operation_array">
         <item>Add</item>
         <item>Divide</item>

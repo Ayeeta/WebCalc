@@ -38,11 +38,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         final WebCalculator webCalculator = webCalculatorList.get(position);
 
-        holder.textViewNumOne.setText(webCalculator.getNumberOne());
-        holder.textViewNumTwo.setText(webCalculator.getNumberTwo());
-        holder.textViewResponse.setText(webCalculator.getResponse());
-        holder.textViewExpected.setText(webCalculator.getExpected());
-        holder.textViewStatus.setText(webCalculator.getPassed());
+        holder.textViewNumOne.setText("Number One: "+webCalculator.getNumberOne());
+        holder.textViewNumTwo.setText("Number Two: "+webCalculator.getNumberTwo());
+        holder.textViewResponse.setText("Response: "+webCalculator.getResponse());
+        holder.textViewExpected.setText("Expected: "+webCalculator.getExpected());
+        holder.textViewStatus.setText("Passed: "+webCalculator.getPassed());
 
         View itemView = holder.itemView;
         CardView cardView = (CardView) itemView.findViewById(R.id.result_card);
