@@ -64,8 +64,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     notifyItemRemoved(holder.getAdapterPosition());
                     notifyItemChanged(holder.getAdapterPosition(), webCalculatorList.size());
                 }
-
-
             }
         });
 
@@ -97,9 +95,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             textViewStatus = (TextView) itemView.findViewById(R.id.txt_status);
             delete_btn = (ImageView) itemView.findViewById(R.id.btn_delete);
         }
-
-
-
 
     }
 
