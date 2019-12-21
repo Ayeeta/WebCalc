@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -55,9 +56,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.delete_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                webCalculatorList.remove(holder.getAdapterPosition());
-                notifyItemRemoved(holder.getAdapterPosition());
-                notifyItemChanged(holder.getAdapterPosition(), webCalculatorList.size());
+//                WebCalculator webCalculator1 = WebCalculator.findById(WebCalculator.class, webCalculatorList.get());
+//                webCalculator1.delete();
+                if(webCalculatorList != null){
+                    //Toast.makeText(this, "Deleted", Toast.LENGTH_LONG).show();
+                    //webCalculatorList = WebCalculator.find(WebCalculator.class, webCalculator.getNumberOne());
+                    WebCalculator webCalculator1 = WebCalculator.findById(WebCalculator.class,webCalculator.getId());
+                    webCalculator1.delete();
+                    webCalculatorList.remove(holder.getAdapterPosition());
+                    notifyItemRemoved(holder.getAdapterPosition());
+                    notifyItemChanged(holder.getAdapterPosition(), webCalculatorList.size());
+                }
+
+
             }
         });
 
