@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     Spinner math_operator;
     String res;
     CardView cardView;
+    Operations operations;
 
 
     public List<WebCalculator> webCalculatorList;
@@ -77,10 +78,13 @@ public class MainActivity extends AppCompatActivity {
 
                     //list_itemList = new ArrayList<>();
                     webCalculatorList = new ArrayList<>();
+                    operations = new Operations(numOne, numTwo);
                     //Thread thread = new Thread();
                     if (math_operator.getSelectedItem().toString().equals("Add")) {
 
-                        expected_result = numOne + numTwo;
+                        //expected_result = numOne + numTwo;
+
+                        expected_result = operations.add();
                         Random random = new Random();
                         double randomNumber = random.nextDouble();
                         int rounded_number = (int) Math.round(randomNumber);
@@ -109,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                             Add();
                         }
                     }else if (math_operator.getSelectedItem().toString().equals("Subtract")) {
-                        expected_result = numOne - numTwo;
+                        expected_result = operations.subtract();
                         Random random = new Random();
                         double randomNumber = random.nextDouble();
                         int rounded_number = (int) Math.round(randomNumber);
@@ -139,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                     }else if (math_operator.getSelectedItem().toString().equals("Divide")) {
-                        expected_result = numOne / numTwo;
+                        expected_result = operations.divide();
                         Random random = new Random();
                         double randomNumber = random.nextDouble();
                         int rounded_number = (int) Math.round(randomNumber);
@@ -168,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
                             Divide();
                         }
                     }else{
-                        expected_result = numOne * numTwo;
+                        expected_result = operations.multiply();
                         Random random = new Random();
                         double randomNumber = random.nextDouble();
                         int rounded_number = (int) Math.round(randomNumber);
@@ -198,8 +202,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
 
-                    editTextNumOne.getText().clear();
-                    editTextNumTwo.getText().clear();
                 } catch (NumberFormatException e) {
                     Toast.makeText(getApplicationContext(), "Please enter number", Toast.LENGTH_LONG).show();
                 }
@@ -232,7 +234,9 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(JSONObject response) {
                             try {
-                                double expected_result = Float.valueOf(numOne) + Float.valueOf(numTwo);
+                                operations = new Operations(Float.valueOf(numOne), Float.valueOf(numTwo));
+                                //double expected_result = Float.valueOf(numOne) + Float.valueOf(numTwo);
+                                double expected_result = operations.add();
                                 res = response.getString("result");
 
                                 String result_expected = Double.toString(expected_result);
@@ -243,7 +247,6 @@ public class MainActivity extends AppCompatActivity {
                                 webCalculatorList = WebCalculator.listAll(WebCalculator.class);
                                 adapter = new RecyclerViewAdapter(webCalculatorList, btn_calculate.getContext());
                                 recyclerView.setAdapter(adapter);
-
 
 
                             } catch (JSONException je) {
@@ -259,7 +262,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
             requestQueue.add(jsonObjectRequest);
-
 
 
         } catch (NumberFormatException e) {
@@ -292,7 +294,10 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(JSONObject response) {
                             try {
-                                double expected_result = Float.valueOf(numOne) - Float.valueOf(numTwo);
+//                                double expected_result = Float.valueOf(numOne) - Float.valueOf(numTwo);
+                                operations = new Operations(Float.valueOf(numOne), Float.valueOf(numTwo));
+                                //double expected_result = Float.valueOf(numOne) + Float.valueOf(numTwo);
+                                double expected_result = operations.subtract();
                                 res = response.getString("result");
 
                                 String result_expected = Double.toString(expected_result);
@@ -352,7 +357,10 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(JSONObject response) {
                             try {
-                                double expected_result = Float.valueOf(numOne) * Float.valueOf(numTwo);
+//                                double expected_result = Float.valueOf(numOne) * Float.valueOf(numTwo);
+                                operations = new Operations(Float.valueOf(numOne), Float.valueOf(numTwo));
+
+                                double expected_result = operations.multiply();
                                 res = response.getString("result");
 
                                 String result_expected = Double.toString(expected_result);
@@ -412,7 +420,10 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(JSONObject response) {
                             try {
-                                double expected_result = Float.valueOf(numOne) / Float.valueOf(numTwo);
+                                //double expected_result = Float.valueOf(numOne) / Float.valueOf(numTwo);
+                                operations = new Operations(Float.valueOf(numOne), Float.valueOf(numTwo));
+                                //double expected_result = Float.valueOf(numOne) + Float.valueOf(numTwo);
+                                double expected_result = operations.divide();
                                 res = response.getString("result");
 
                                 String result_expected = Double.toString(expected_result);
