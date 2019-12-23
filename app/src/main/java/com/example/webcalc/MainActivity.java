@@ -271,6 +271,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void Subtract() {
 
+
         editTextNumOne = (EditText) findViewById(R.id.numberOneTxt);
         editTextNumTwo = (EditText) findViewById(R.id.numberTwoTxt);
         math_operator = (Spinner) findViewById(R.id.op_spinner);
