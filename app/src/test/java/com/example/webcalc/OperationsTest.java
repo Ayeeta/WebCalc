@@ -1,12 +1,19 @@
 package com.example.webcalc;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class OperationsTest {
 
-    private Operations operations = new Operations(4.0, 2.0);
+    private Operations operations;
+
+    @Before
+    public void setUp(){
+        operations = new Operations(4.0, 2.0);
+    }
 
     @Test
     public void add() {
@@ -33,5 +40,10 @@ public class OperationsTest {
     public void divide() {
         double output = operations.divide();
         assertEquals(2.0, output, .1);
+    }
+
+    @After
+    public void tearDown(){
+
     }
 }
