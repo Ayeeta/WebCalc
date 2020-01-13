@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -35,6 +36,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+
         final WebCalculator webCalculator = webCalculatorList.get(position);
 
         holder.textViewNumOne.setText("Number One: "+webCalculator.getNumberOne());
@@ -42,6 +44,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.textViewResponse.setText("Response: "+webCalculator.getResponse());
         holder.textViewExpected.setText("Expected: "+webCalculator.getExpected());
         holder.textViewStatus.setText("Passed: "+webCalculator.getPassed());
+
+
 
         if (holder.textViewStatus.getText().toString().contains("No")){
             holder.cardView.setCardBackgroundColor(Color.rgb(255, 173, 153));
@@ -64,6 +68,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         });
 
 
+
     }
 
     @Override
@@ -81,6 +86,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView textViewStatus;
         ImageView delete_btn;
         CardView cardView;
+//        ProgressBar progressBar;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -93,6 +99,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             textViewStatus =  itemView.findViewById(R.id.txt_status);
             delete_btn =  itemView.findViewById(R.id.btn_delete);
             cardView = itemView.findViewById(R.id.result_card);
+//            progressBar = itemView.findViewById(R.id.indeterminateBar);
         }
 
     }
