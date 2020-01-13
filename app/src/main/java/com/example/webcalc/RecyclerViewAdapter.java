@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
@@ -75,12 +74,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView textViewNumOne;
-        public TextView textViewNumTwo;
-        public TextView textViewResponse;
-        public TextView textViewExpected;
-        public TextView textViewStatus;
-        public ImageView delete_btn;
+        TextView textViewNumOne;
+        TextView textViewNumTwo;
+        TextView textViewResponse;
+        TextView textViewExpected;
+        TextView textViewStatus;
+        ImageView delete_btn;
         CardView cardView;
 
 
