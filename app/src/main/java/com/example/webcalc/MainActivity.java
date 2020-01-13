@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                         public void onResponse(JSONObject response) {
                             try {
                                 operations = new Operations(Float.valueOf(numOne), Float.valueOf(numTwo));
-                                //double expected_result = Float.valueOf(numOne) + Float.valueOf(numTwo);
+
                                 double expected_result = operations.add();
                                 res = response.getString("result");
 
@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
                                 WebCalculator webCalculator = new WebCalculator(
                                         numOne, numTwo, res, result_expected, "Yes");
                                 webCalculator.save();
-                                //webCalculatorList.add(webCalculator2);
+
                                 webCalculatorList = WebCalculator.listAll(WebCalculator.class);
                                 adapter = new RecyclerViewAdapter(webCalculatorList, btn_calculate.getContext());
                                 recyclerView.setAdapter(adapter);
