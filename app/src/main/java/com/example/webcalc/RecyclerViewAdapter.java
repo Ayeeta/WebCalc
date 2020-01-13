@@ -44,13 +44,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.textViewExpected.setText("Expected: "+webCalculator.getExpected());
         holder.textViewStatus.setText("Passed: "+webCalculator.getPassed());
 
-        View itemView = holder.itemView;
-        CardView cardView = (CardView) itemView.findViewById(R.id.result_card);
-        TextView textView = (TextView) itemView.findViewById(R.id.txt_status);
-        if (textView.getText().toString().contains("No")) {
-            cardView.setCardBackgroundColor(Color.rgb(255, 173, 153));
-        } else {
-            cardView.setCardBackgroundColor(Color.rgb(255, 212, 128));
+        if (holder.textViewStatus.getText().toString().contains("No")){
+            holder.cardView.setCardBackgroundColor(Color.rgb(255, 173, 153));
+        }else{
+            holder.cardView.setCardBackgroundColor(Color.rgb(255, 212, 128));
         }
 
         holder.delete_btn.setOnClickListener(new View.OnClickListener() {
@@ -84,16 +81,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public TextView textViewExpected;
         public TextView textViewStatus;
         public ImageView delete_btn;
+        CardView cardView;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            textViewNumOne = (TextView) itemView.findViewById(R.id.txt_numOne);
-            textViewNumTwo = (TextView) itemView.findViewById(R.id.txt_numTwo);
-            textViewResponse = (TextView) itemView.findViewById(R.id.txt_response);
-            textViewExpected = (TextView) itemView.findViewById(R.id.txt_expected);
-            textViewStatus = (TextView) itemView.findViewById(R.id.txt_status);
-            delete_btn = (ImageView) itemView.findViewById(R.id.btn_delete);
+            textViewNumOne = itemView.findViewById(R.id.txt_numOne);
+            textViewNumTwo = itemView.findViewById(R.id.txt_numTwo);
+            textViewResponse = itemView.findViewById(R.id.txt_response);
+            textViewExpected = itemView.findViewById(R.id.txt_expected);
+            textViewStatus =  itemView.findViewById(R.id.txt_status);
+            delete_btn =  itemView.findViewById(R.id.btn_delete);
+            cardView = itemView.findViewById(R.id.result_card);
         }
 
     }
