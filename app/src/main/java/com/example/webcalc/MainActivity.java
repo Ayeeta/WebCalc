@@ -92,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
                                     num_one, num_two, numResp, numExpected, status);
                             webCalculator.save();
 
-                            //webCalculatorList.add(webCalculator);
                             webCalculatorList = WebCalculator.listAll(WebCalculator.class);
                             adapter = new RecyclerViewAdapter(webCalculatorList, btn_calculate.getContext());
                             recyclerView.setAdapter(adapter);
