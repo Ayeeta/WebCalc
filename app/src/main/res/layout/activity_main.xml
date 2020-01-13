@@ -106,8 +106,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textViewResult"
         android:layout_marginTop="20dp">
-
-
     </androidx.recyclerview.widget.RecyclerView>
 
 </RelativeLayout>
