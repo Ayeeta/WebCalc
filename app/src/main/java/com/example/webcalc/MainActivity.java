@@ -66,14 +66,12 @@ public class MainActivity extends AppCompatActivity {
                     final double numTwo = Float.valueOf(editTextNumTwo.getText().toString());
                     final double expected_result;
 
-                    //list_itemList = new ArrayList<>();
+
                     webCalculatorList = new ArrayList<>();
                     operations = new Operations(numOne, numTwo);
-                    //Thread thread = new Thread();
+
                     String operator = CalculatorOperations.getOperationSymbol(math_operator.getSelectedItem().toString());
                     if (!operator.isEmpty()) {
-
-                        //expected_result = numOne + numTwo;
 
                         expected_result = operations.add();
                         Random random = new Random();
